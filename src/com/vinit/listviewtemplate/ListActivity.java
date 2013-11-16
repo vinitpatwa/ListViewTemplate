@@ -20,6 +20,7 @@ import com.haarman.listviewanimations.swinginadapters.prepared.SwingBottomInAnim
 public class ListActivity extends Activity implements OnDismissCallback {
 	PullToRefreshListView lv_list;
 	ListAdapter adapter;
+	SwingBottomInAnimationAdapter swingBottomInAnimationAdapter;
 
 
 
@@ -33,9 +34,10 @@ public class ListActivity extends Activity implements OnDismissCallback {
 		adapter = new ListAdapter(this, tweet);
 
 
-		SwingBottomInAnimationAdapter swingBottomInAnimationAdapter = new SwingBottomInAnimationAdapter(new SwipeDismissAdapter(adapter, this));
+		swingBottomInAnimationAdapter= new SwingBottomInAnimationAdapter(new SwipeDismissAdapter(adapter, this));
 		swingBottomInAnimationAdapter.setInitialDelayMillis(300);
 		swingBottomInAnimationAdapter.setAbsListView(lv_list);
+		
 
 		lv_list.setAdapter(swingBottomInAnimationAdapter);
 
@@ -71,7 +73,10 @@ public class ListActivity extends Activity implements OnDismissCallback {
 	@Override
 	public void onDismiss(AbsListView listView, int[] reverseSortedPositions) {
 		// TODO Auto-generated method stub
-
+	    for (int position : reverseSortedPositions) {
+	    	Tweet t = adapter.getItem(position);
+	    	adapter.remove(t);
+	    }
 	}
 
 }
