@@ -36,7 +36,6 @@ public class ListAdapter extends ArrayAdapter<Tweet> {
 			LayoutInflater inflator = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			view = inflator.inflate(R.layout.tweet_item, null);
 		}
-		//change above activity_list and add Tweets details to view below
 		Tweet tweet= getItem(position);
 
 		iv_image = (ImageView) view.findViewById(R.id.iv_image);

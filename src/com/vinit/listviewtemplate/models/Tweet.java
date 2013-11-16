@@ -38,6 +38,11 @@ public class Tweet {
         Tweet t4 = new Tweet("Fourth Tweet", "fourth creator", "http://www.redchurch.org.au/wp-content/uploads/2011/11/red-number-4.jpg");
         tweet.add(t4);
         
+        tweet.add(t);
+        tweet.add(t2);
+        tweet.add(t3);
+        tweet.add(t4);
+        
         return tweet;
 	}
 }
