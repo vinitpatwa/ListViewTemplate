@@ -30,11 +30,18 @@ public class ListActivity extends Activity {
         lv_list.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh() {
-                // Your code to refresh the list contents
-                // Make sure you call listView.onRefreshComplete()
-                // once the loading is done. This can be done from here or any
-                // place such as when the network request has completed successfully.
-                Toast.makeText(getBaseContext(),"pulled to refresh", Toast.LENGTH_SHORT).show();
+            	Toast.makeText(getBaseContext(),"pulled to refresh", Toast.LENGTH_SHORT).show();
+
+            	try{
+            		Thread.sleep(2000);
+            	}catch(Exception e){
+            		e.printStackTrace();
+            	}
+            	// Your code to refresh the list contents
+            	// Make sure you call listView.onRefreshComplete()
+            	// once the loading is done. This can be done from here or any
+            	// place such as when the network request has completed successfully.
+            	lv_list.onRefreshComplete();
             }
         });
         
